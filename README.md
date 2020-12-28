@@ -6,17 +6,20 @@ This project is a simple tool to update/merge ALL branches with other branch, e.
 
 ## Download
 
-`git clone <>`
+`git clone https://github.com/italojs/gittera.git`
+
 `cd gittera`
 
 ## Execute script
 In your terminal, type
 
-1. `sh ./gittera.sh <merge_branch_name>`
-or
-2. `sh ./gittera.sh`
+`sh ./gittera.sh <merge_branch_name>`
 
-In the 2. option the script will ask you the branch name that you want to merge with all others.
+or
+
+`sh ./gittera.sh`
+
+In the second option the script will ask you the branch name that you want to merge with all others.
 ```
 > sh ./gittera.sh
 > Type your main branch: 
