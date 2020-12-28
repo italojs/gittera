@@ -13,8 +13,9 @@ WARN(){
 }
 
 CURRENT_BRANCH=$(git branch | grep '^*' | sed 's/* //' )
-
 MAIN_BRANCH=$1
+STARTWITH=$2
+
 if [ -z "$MAIN_BRANCH" ];
 then
     PRINT "Type your main branch: "
@@ -23,7 +24,7 @@ fi;
 
 for BRANCH in `git branch --list|sed 's/\*//g'`;
   do 
-    if [[ $BRANCH == release* ]];
+    if [[ $BRANCH == $STARTWITH* ]];
     then
         PRINT "Entering into $BRANCH"
         git fetch
@@ -34,7 +35,7 @@ for BRANCH in `git branch --list|sed 's/\*//g'`;
             exit 0
         fi
         git pull
-        git pull origin master
+        git pull origin $MAIN_BRANCH
         PRINT "Send this code to remote? (y/n)"
         read input
         if echo $input | grep -iq "^y" ;then
